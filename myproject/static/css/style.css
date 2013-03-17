@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	background-color: ;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.beforeContent {
+	height: 50px;
+}
+
+.content {
+	background-color: ;
+	min-height: 200px;
+	width: 980px;
+	margin: 0px auto;
+	padding: 10px;
+}
+
+.footer, .push {
+	height: 100px; /* .push must be the same height as .footer */
+	clear: both;
+}
+
+.footer {
+	background-color: #2E9AFE;
+}
+
+.search {
+	background-color: ;
+	width: 500px;
+	height: 50px;
+	margin: 0px auto 10px auto;
+	text-align: center;
+}
+
+.gameListBox {
+	background-color: ;
+	min-height: 100px;
+	overflow: auto;
+}

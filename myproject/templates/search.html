@@ -1,0 +1,122 @@
+<!-- home.html -->
+<!DOCTYPE html>
+
+<html>
+
+	<!-- Head -->
+	<head>
+
+		<!-- Title -->
+		<title>{{company}}: {{title_name}}</title>
+		<link rel = "stylesheet" type = "text/css" href = "../static/css/home.css" />
+
+		<link rel = "stylesheet" type = "text/css" href = "../../static/css/style.css" />
+		<link rel = "stylesheet" type = "text/css" href = "../../static/css/header.css" />
+		<link rel = "stylesheet" type = "text/css" href = "../../static/css/home.css" />
+		<!-- Shared header -->
+		{% include "shared_header.html" %}
+
+		<!-- Infinite Scroll -->
+		<!--<script type="text/javascript" src = "../../static/js/infiniteScroll.js"></script>-->
+		
+	</head>
+	<!-- End Head -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){     
+		    $(window).bind('scroll', loadOnScroll);
+		});
+
+		// Scroll globals
+		var pageNum = 1; // The latest page loaded
+		var hasNextPage = true; // Indicates whether to expect another page after this one
+
+		// loadOnScroll handler
+		var loadOnScroll = function() {
+		    // If the current scroll position is past out cutoff point...
+		    if ($(window).scrollTop() > $(document).height() - ($(window).height()*2)) {
+		        // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
+		        $(window).unbind(); 
+		        // execute the load function below that will visit the JSON feed and stuff data into the HTML
+		        loadItems();
+		    }
+		};
+
+		var loadItems = function() {
+		    // If the next page doesn't exist, just quit now 
+		    if (hasNextPage === false) {
+		        return false
+		    }
+		    // Update the page number
+		    pageNum = pageNum + 1;
+		    // Configure the url we're about to hit
+		    $.ajax({
+		        url: '/search/{{category}}/',
+		        data: {page_number: pageNum},
+		        dataType: 'json',
+		        success: function(data) {
+		            var resp = data;
+		            //var resp = eval(data);
+		            //$(".gamesListBoxAnchor").html(resp);
+		            // Update global next page variable
+		            hasNextPage = true;//.hasNext;
+		            // Loop through all items
+		            for (i in resp) {
+		                $(".gameListBox").append(
+		                    '<div class = "panelOuter">' +
+		                    '<a href = "/' + resp[i].pk + '">' +
+		                    '<div class = "panelInner">' + 
+		                    '<div class = "gameNameBox">' +
+		                    '<u>' + resp[i].fields.name + '</u>' +
+		                    '</div>' +
+		                    '<center><img src = "' + resp[i].fields.image + '"></center>' +
+		                    "" + resp[i].fields.category + '</br>' +
+		                    '</div>' + 
+		                    '</a>' +
+		                    '</div>'
+		                )
+
+		            }
+		        },
+		        error: function(data) {
+		            // When I get a 400 back, fail safely
+		            hasNextPage = false
+		        },
+		        complete: function(data, textStatus){
+		            // Turn the scroll monitor back on
+		            $(window).bind('scroll', loadOnScroll);
+		        }
+		    });
+		};
+	</script>
+
+	<!-- Body -->
+	<body>
+	  <center>
+		<!-- Wrapper for Content -->
+        <div class = "wrapper">
+            
+        	<!-- Shared topbanner -->
+			{% include "shared_topbanner.html" %}
+
+			<div class = "beforeContent"></div>
+
+			<!-- Content -->
+			<div class = "content">
+				{% include "shared_search.html" %}
+			</div>
+			<!-- End Content -->
+
+            <!-- Sticky Footer Clear -->
+            <div class = "push"></div> 
+
+        </div>
+        <!-- End Wrapper for Content -->
+
+        <!-- Shared footer -->
+        {% include "shared_footer.html" %}
+	</center>
+    </body>
+	<!-- End Body -->
+
+</html>

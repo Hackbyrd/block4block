@@ -1,0 +1,142 @@
+<!-- CSS -->
+<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css" />
+<link rel = "stylesheet" type = "text/css" href = "../static/css/header.css" />
+
+<!-- Favicon -->
+<link rel = "shortcut icon" type = "image/x-icon" href = "favicon.ico">
+
+<!-- Javascript -->
+<!--<script type="text/javascript" src="example.js"></script>-->
+
+<!-- JQUERY AND AJAX -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+<!-- Mochi Media Code -->
+<!-- 91c6c4d210434e153c2b12f1eabf0647mochiads.com -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-36232121-1']);
+	_gaq.push(['_setDomainName', 'block4block.com']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+<script type="text/javascript">
+
+	/*$(document).ready(function () {  
+		var top = $('.signUpBox').offset().top - parseFloat($('.signUpBox').css('marginTop').replace(/auto/, 0));
+		$(window).scroll(function (event) {
+			// what the y position of the scroll is
+			var y = $(this).scrollTop();
+
+			// whether that's below the form
+			if (y >= top) {
+				// if so, ad the fixed class
+				$('.signUpBox').css('position', 'fixed');
+				} else {
+				// otherwise remove it
+				$('.signUpBox').css('position', 'absolute');
+			}
+		});
+	});
+
+	$(document).ready(function(){     
+    	$(window).bind('scroll', clearSignUp);
+	});
+
+	var signupon = false;
+	var loginon = false;
+
+	var clearSignUp = function() {
+	    // If the current scroll position is past out cutoff point...
+	    if ($(window).scrollTop() > $(document).height() - ($(window).height()*2)) {
+	        // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
+	        $(window).unbind(); 
+	        // execute the load function below that will visit the JSON feed and stuff data into the HTML
+	        //$('.signUpBox').hide();
+	        //signupon = false;
+			//loginon = false;
+			var top = $('#comment').offset().top;
+	        $(window).bind('scroll', clearSignUp);
+	    }
+	};*/
+	var signupon = false;
+	var loginon = false;
+
+	$(init);
+	function init() {
+		$('.signUpBox').hide();
+	}
+
+	function signup() {
+		if (signupon == false) {
+			$('.signUpBox').show();
+			$('.signUpBox').html("");
+			$('.innerSignUpBoxLeft').html("");
+			$('.innerSignUpBoxRight').html("");
+
+			$('.signUpBox').append("<center><h3>Sign-Up! It's Free!</h3></center>");
+			$('.signUpBox').append("<div class = 'innerSignUpBox'>");
+			$('.signUpBox').append("<form>");
+
+			$('.signUpBox').append("<div class = 'innerSignUpBoxLeft'></div>");
+			$('.innerSignUpBoxLeft').append("Email:</br></br>Password:</br><br>Password Again:");
+
+			$('.signUpBox').append("<div class = 'innerSignUpBoxRight'></div>");
+			$('.innerSignUpBoxRight').append('<input type = "text" class = "textBox" name = "Email"></br>');
+			$('.innerSignUpBoxRight').append('<input type = "password" class = "textBox" name = "password"></br>');
+			$('.innerSignUpBoxRight').append('<input type = "password" class = "textBox" name = "passwordAgain"></br>');
+
+			$('.signUpBox').append('<input type = "submit" class = "submitButton" value="Sign Up">');
+			$('.signUpBox').append("</form>");
+			$('.signUpBox').append("</div>");
+			signupon = true;
+		}
+		else {
+			$('.signUpBox').hide();
+			signupon = false;
+		}
+		loginon = false;
+	}
+	function login() {
+		if (loginon == false) {
+			$('.signUpBox').show();
+			$('.signUpBox').html("");
+			$('.innerSignUpBoxLeft').html("");
+			$('.innerSignUpBoxRight').html("");
+
+			$('.signUpBox').append("<center><h3>Log-In</h3></center>");
+			$('.signUpBox').append("<div class = 'innerSignUpBox'>");
+			$('.signUpBox').append("<form>");
+
+			$('.signUpBox').append("<div class = 'innerSignUpBoxLeft'></div>");
+			$('.innerSignUpBoxLeft').append("Email:</br></br>Password:");
+
+			$('.signUpBox').append("<div class = 'innerSignUpBoxRight'></div>");
+			$('.innerSignUpBoxRight').append('<input type = "text" class = "textBox" name = "email"></br>');
+			$('.innerSignUpBoxRight').append('<input type = "password" class = "textBox" name = "password"></br>');
+
+			$('.signUpBox').append('&nbsp;&nbsp;&nbsp;<input type = "checkbox" name = "rememberme" style = "font-size: 8px;" value = "Remember Me"> Remember Me &nbsp;|&nbsp; ');
+			$('.signUpBox').append('<a href = "/" style = "font-size = 10px;">Forgot Password?</a>');
+			$('.signUpBox').append('<input type = "submit" class = "submitButton" value="Login">');
+			$('.signUpBox').append("</form>");
+			$('.signUpBox').append("</div>");
+			loginon = true;
+		}
+		else {
+			$('.signUpBox').hide();
+			loginon = false;
+		}
+		signupon = false;
+	}
+</script>

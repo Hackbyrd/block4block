@@ -1,0 +1,73 @@
+/* home.css */
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+
+.panelOuter {
+	border: 0px black solid;
+	padding: 5px;
+	font-size: 14px;
+	width: 143px;
+	min-height: 150px;
+	float:left;
+	background-color: ;
+	margin: 5px;
+}
+.panelInner {
+	border: 1px #848484 solid;
+	width: 131px;
+	min-height: 115px;
+	padding: 10px 5px 5px 5px;
+	text-align: center;
+	-moz-border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background-color: #D8D8D8;
+	-moz-box-shadow: 0 0 5px #D8D8D8;
+	-webkit-box-shadow: 0 0 5px #D8D8D8;
+	box-shadow: 0 0 5px #D8D8D8;
+}
+.panelInner img {
+	margin-top: 5px;
+	-moz-border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	height: 85px;
+	width: 85px;
+}
+.panelOuter a {
+	text-decoration: none;
+	color: black;
+}
+.panelOuter a:hover .panelInner {
+	border: 1px #2E9AFE solid;
+	-moz-box-shadow: 0 0 3px 3px #2E9AFE;
+	-webkit-box-shadow: 0 0 3px #px #2E9AFE;
+	box-shadow: 0 0 3px 3px #2E9AFE;
+	/*background-color: #2E9AFE;*/
+}
+
+.topContent {
+	min-height: 100px;
+	background-color: ;
+	color: #2E9AFE;
+	text-align: center;
+	margin-bottom: 20px;
+	overflow: auto;
+	font-size: 18px;
+}
+
+.topContentBox {
+	float:left;
+	width: 300px;
+	min-height: 100px;
+	background-color: ;
+}
+
+.gameNameBox {
+	background-color: ;
+	height:35px;
+
+}

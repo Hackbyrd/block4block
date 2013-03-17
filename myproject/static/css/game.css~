@@ -1,0 +1,23 @@
+/* games.css */
+
+.infoBoxOuter {
+	width: 700px;
+	min-height: 100px;
+	padding: 5px;
+	margin: 10px auto 10px auto;
+	background-color:;
+	overflow: auto;
+}
+
+.infoBoxInner {
+	width: 300px;
+	background-color:;
+	float: left;
+	min-height: 100px;
+	text-align: left;
+	line-height: 150%;
+}
+
+.wordColor {
+	color: #2E9AFE;
+}

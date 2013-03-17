@@ -1,0 +1,74 @@
+<!-- game.html -->
+<!DOCTYPE html>
+
+<html>
+
+	<!-- Head -->
+	<head>
+
+		<!-- Title -->
+		<title>{{company}}: {{title_name}}</title>
+		<link rel = "stylesheet" type = "text/css" href = "../static/css/game.css" />
+
+		<!-- Shared header -->
+		{% include "shared_header.html" %}
+		
+	</head>
+	<!-- End Head -->
+
+	<!-- Body -->
+	<body>
+
+		<!-- Wrapper for Content -->
+        <div class = "wrapper">
+          <center>
+        	<!-- Shared topbanner -->
+			{% include "shared_topbanner.html" %}
+
+			<div class = "beforeContent"></div>
+
+			<!-- Content -->
+			<div class = "content">
+				<center>
+					<h2 class = "wordColor">{{Game.name}}</h2></br>
+					<embed src="{{Game.embed_src}}" menu="false" quality="high" width="{{Game.embed_width}}" height="{{Game.embed_height}}" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></br></br>
+					
+					<div class = "infoBoxOuter">
+						<div class = "infoBoxInner" style = "width: 100px;">
+							<img src = '{{Game.image}}'>
+						</div>
+						<div class = "infoBoxInner" style = "width:575px; margin-left: 20px;">
+							<u class = "wordColor"><h3 class = "wordColor">{{Game.name}}</h3></u>
+							<span class = "wordColor">Category:</span> {{Game.category}}
+							<!-- | <span class = "wordColor">Tags:</span> {{Game.tags}}--></br>
+							<span class = "wordColor">By:</span> {{Game.author}} <span class = "wordColor">from</span> {{Game.site_type}} 
+							<!--<span class = "wordColor">Played:</span> {{Game.visits}} times | 
+							<span class = "wordColor">Donated</span> ${{Game.visits}}-->
+							</br></br>
+							<span class = "wordColor">Game Description:</span></br>
+							{{Game.description}}</br></br>
+							<span class = "wordColor">Game Instructions:</span></br>
+							{{Game.instructions}}</br></br>
+							<span class = "wordColor">Game Control Scheme:</span></br>
+							{{Game.controls}}
+						</div>
+					</div>
+
+				</center>
+
+			</div>
+			<!-- End Content -->
+
+            <!-- Sticky Footer Clear -->
+            <div class = "push"></div> 
+	    </center>
+        </div>
+        <!-- End Wrapper for Content -->
+
+        <!-- Shared footer -->
+        {% include "shared_footer.html" %}
+
+    </body>
+	<!-- End Body -->
+
+</html>

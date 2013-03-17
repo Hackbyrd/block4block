@@ -1,0 +1,94 @@
+<!-- HTML5 Template -->
+<!DOCTYPE html>
+
+<html>
+
+  <!-- Head -->
+  <head>
+
+    <!-- Title -->
+    <title>{{company}}: {{title_name}}</title>
+
+  </head>
+  <!-- End Head -->
+
+  <!-- Body -->
+  <body>
+    
+    <center>
+      
+      <h1>ADD GAME</h1>
+      <h3>{{message}}</h3>
+
+      <!-- Start Form -->
+      <form action = "/addgame" method = "POST">
+
+        <!-- Python-Django Stuff -->
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.errors }}
+        <!--{{ form.as_p }}-->
+
+        <!-- Information -->
+        Name of Game: <input type = "text" name = "name" size = "50"></br></br>
+        Image Link: <input type = "text" name = "image" size = "150"></br></br>
+        Category: 
+        <select name = "category">
+          <option value = "Action">Action</option>
+          <option value = "Adventure">Adventure</option>
+          <option value = "Board Game">Board Game</option>
+          <option value = "Casino">Casino</option>
+          <option value = "Driving">Driving</option>
+          <option value = "Dress Up">Dress Up</option>
+          <option value = "Fighting">Fighting</option>
+          <option value = "Puzzles">Puzzles</option>
+          <option value = "Pimp My">Pimp My</option>
+          <option value = "Shooting">Shooting</option>
+          <option value = "Sports">Sports</option>
+          <option value = "Other">Other</option>
+          <option value = "Strategy">Strategy</option>
+          <option value = "Education">Education</option>
+          <option value = "Rhythm">Rhythm</option>
+          <option value = "Jigsaw">Jigsaw</option>
+        </select>
+      </br></br>
+        <!--<input type = "text" name = "category" size = "50"></br></br>-->
+        Content Rating:
+        <select name = "content_rating">
+          <option value = "Early Childhood">Early Childhood</option>
+          <option selected = "selected" value = "Everyone">Everyone</option>
+          <option value = "Everyone 10+">Everyone 10+</option>
+          <option value = "Teen">Teen</option>
+          <option value = "Mature">Mature</option>
+          <option value = "Adult Only">Adult Only</option>
+          <option value = "Rating Pending">Rating Pending</option>
+        </select>
+      </br></br>
+        <!--<input type = "text" name = "content_rating" size = "50"></br></br>-->
+        Description </br>
+        <textarea name = "description" rows = 10 cols = 100></textarea></br></br>
+        <u>Embedded Code Information: </u></br></br>
+        SRC (note: do not include "" quotes in src):</br> <input type = "text" name = "embed_src" size = "150"></br></br>
+        Width #:<input type = "text" name = "embed_width" size = "10"></br></br>
+        Height #: <input type = "text" name = "embed_height" size = "10"></br></br>
+
+        Instructions: (If no instructions put 'None')</br>
+        <textarea name = "instructions" rows = 10 cols = 100>None</textarea></br></br>
+
+        Control Scheme: (If no Control Scheme put 'None')</br>
+        <textarea name = "controls" rows = 10 cols = 100>None</textarea></br></br>
+
+        Submit Password: <input type = "password" name = "visits" size = "20"></br></br>
+
+        <input name = "submit" type = "submit" value = "Submit" />
+        <input type = "reset" value = "Reset">
+
+      </form>
+      <!-- End Start Form -->
+
+    </center>
+
+  </body>
+  <!-- End Body -->
+
+</html>

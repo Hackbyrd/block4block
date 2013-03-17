@@ -1,0 +1,50 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+	<!-- Head -->
+	<head>
+		<!-- Title -->
+		<title>{{company}}: {{title_name}}</title>
+		<link rel = "stylesheet" type = "text/css" href = "../static/css/home.css" />
+	</head>
+	<!-- End Head -->
+
+	<!-- Body -->
+	<body>
+		{% include "shared_header.html" %}
+		<div class = "wrapper">
+			<div class = "content">
+				{% include "shared_topbanner.html" %}
+
+				<div class = "beforeContent"></div>
+
+				
+				<div class = "topContent">
+					<h2>Play Games, Help Charities!</h2>
+					</br>
+					<div class = "topContentBox">
+						The charity of the week is:</br> <img style = "height:15%" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Blue_question_mark.svg/450px-Blue_question_mark.svg.png"><!--"http://redcrosschat.org/wp-content/uploads/2011/02/Red-Cross-Logo.jpg"-->
+					</div>
+					<div class = "topContentBox" style = "width: 650px; margin-left: 20px; text-align: left;">
+						<p>Our vision is to create a world where people can enjoy playing games while still giving back to the community!
+							You can help out those who are in need. A charity will be benefited for every game you play.</br></br>
+							{{company}} has donated <b>$5.98</b> and counting to charites around the world thanks to you! We can help build a better community one block at a time...
+						</p>
+					</div>
+				</div>
+				<hr/>
+
+				{% include "shared_search.html" %}
+			</div>
+			<!-- End Content -->
+
+	    <!-- Sticky Footer Clear -->
+	    <div class = "push"></div> 
+	    </center>
+	</div>
+	<!-- End Wrapper for Content -->
+
+	<!-- Shared footer -->
+	{% include "shared_footer.html" %}
+    </body>
+</html>
